@@ -1,0 +1,48 @@
+README
+
+Hi! Thank you for using my trajectory calculator.
+
+
+HOW TO START:
+
+Open index.html in a web browser and make sure all the associated .js and .css files are in the same directory as index.html.
+
+
+HOW TO USE:
+
+The calculator takes up to six inputs:
+
+	Mass (in kilograms)
+	Cross-sectional area (in square meters)
+	Drag coefficient (dimensionless constant)
+	Launch speed (in meters per second)
+	Launch angle (in degrees)
+	Initial height (in meters)
+
+Click "Calculate" to get a visualization of the object's trajectory.
+Click the graph itself to see how the object's speed changes over time.
+Click "Export" to download a .csv file with all the data.
+Click "Screenshot" to get a screenshot of the graph you see. Note that the screenshot function does not work for all browsers.
+
+
+USAGE TIPS:
+
+The physics behind the app only hold for velocities under Mach 3 or so and altitudes inside the troposphere. Should you be using this for hypervelocity and/or ultra-high altitude calculations, you are probably doing something far beyond this calculator's capabilities. This is meant as a visualization tool to help users understand what effects certain factors have on air resistance, not as a modeling tool for military-grade hardware or rocket science. If you are doing those things, consult MATLAB, not a college freshman's introductory computer science project.
+
+The calculator should stop you from doing anything heinous with the inputs. Should you give ridiculous values, you'll probably get ridiculous inputs. Remember, this is a model, not a substitute for experimentation. It's really good for everyday scenarios, but extreme inputs give useless data.
+
+If you're unhappy with the resolution of the data and are feeling adventurous, go into calculate.js and mess with the step-size-setting functions. I intentionally left out a resolution input field because I did not want users to crash the app by setting the resolution too high.
+
+If the plot area is too big, you can go into setup.js with a text editor and change the size of the canvas. If you can’t figure that one out, you probably should give up the whole physics thing.
+
+The little ball that rides on the line moves in real time, no matter the framerate. Should you pick a very very small arc, it will most definitely move too quickly to see. Should you pick a very large arc, you'll be waiting a while. Its color also corresponds to its speed.
+
+For fun, try plugging in the following inputs:
+
+Mass = 0.145
+Area = 0.004
+Coefficient = 0.36
+Speed = 47
+Angle = 35
+
+The first person to tell me what this models gets a prize.

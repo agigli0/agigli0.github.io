@@ -28,7 +28,7 @@ function draw() {
 	text(round(frameRate()), width - brdr, brdr);
 	text(points.length + " points plotted", width-brdr, 1.5*brdr);
 	text(step_size.toFixed(4) + " s resolution", width-brdr, 2*brdr);
-	text(round(programRunTime) + " ms to calculate", width-brdr, 2.5*brdr);
+	text(round(programRunTime) + " ms to calculate " + points.length + " points", width-brdr, 2.5*brdr);
 	pop();
 }
 

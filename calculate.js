@@ -93,6 +93,7 @@ function calculate() {
 	}
 
 	apex = points[0];
+
 	//find the top of the path
 	for(var q = 0; points[q][1] < points[q+1][1]; q++) {
 		apex = points[q+1];
@@ -110,9 +111,19 @@ function calculate() {
 	if (points[points.length - 1][5] > maxSpeed) {
 		maxSpeed = points[points.length - 1][5];
 	}
-	
 
-	//set an appropriate scale
+	setScales();
+
+	//stop the stopwatch
+	var t1 = performance.now();
+	programRunTime = t1 - t0;
+
+	//it worked
+	success = true;
+}
+
+function setScales() {
+	//set appropriate scales
 	if (apex[1]*(width/height) > points[points.length-1][0]) {
 		scl = (height - (brdr + originY))/(apex[1]);
 		order = floor(log(apex[1])/log(10));
@@ -128,11 +139,4 @@ function calculate() {
 
 	tscl = (width - (brdr + originX))/points[points.length-1][4];
 	torder = floor(log(points[points.length-1][4])/log(10));
-
-	//stop the stopwatch
-	var t1 = performance.now();
-	programRunTime = t1 - t0;
-
-	//it worked
-	success = true;
 }

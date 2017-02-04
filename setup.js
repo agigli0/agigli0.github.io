@@ -16,4 +16,7 @@ window.onresize = function() {
   var h = window.innerHeight;  
   canvas.size(w - (marginLeft + marginGeneral), h - 2 * marginGeneral);
   canvas.position(marginLeft, marginGeneral);
+  width = w - (marginLeft + marginGeneral);
+  height = h - 2 * marginGeneral;
+  setScales();
 };

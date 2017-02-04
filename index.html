@@ -13,13 +13,13 @@
     <link href="main.css" rel="stylesheet"/>
 
     <!-- http://p5js.org -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.dom.js"></script>
 </head>
 
 <body>
 	<h1>Trajectory Calculator</h1>
-
+	<a href="https://github.com/agigli0/agigli0.github.io" target="_blank">GitHub Repository</a>
 	
 	<!-- Load js files -->
 	<script type="text/javascript" src="setup.js"></script>
@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="export.js"></script>
 
 	<div class='inputs'>
-		<a href="https://github.com/agigli0/agigli0.github.io">GitHub Repository</a>
+		
 		<p>Mass (kg)</p>
 		<input name="mass" id="m" class="form-control" type="number"/>
 		<p>Cross-Sectional Area (m<sup>2</sup>)</p>
@@ -48,11 +48,8 @@
 
 	<button class="btn btn-primary" id="calculate" onclick="calculate();">Calculate</button>
 	<br>
-	<!-- Saving for later!
-	<button class="btn btn-primary" id="export" onclick="exportify()">Export</button>
+	<button class="btn btn-primary" id="switchview" onclick="clickered();">Switch View</button>
 	<br>
-	<button class="btn btn-primary" id="screenshot" onclick="screenshot()">Screenshot</button>
-	-->
 
 
 	<p id="warnings"></p>

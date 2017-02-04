@@ -31,9 +31,6 @@ function draw() {
 	pop();
 }
 
-function mouseClicked() {
-	if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-		clicked = !clicked;
-	}
-	return false;
+function clickered() {
+	clicked = !clicked;
 }

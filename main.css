@@ -1,21 +1,29 @@
-.form-control {
-	width: 300px;
-	margin: 15px;
-	margin-top: 0px;
-
+ul {
+	list-style-type: none;
+	padding-left: 0px;
 }
 
-h1 {
-	margin: 15px;
-	width: 300px;
+.main-menu {
+	text-align: center;
 }
 
-button {
-	width: 300px;
-	margin: 15px;
+.main-title {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
-p, a {
-	margin: 15px;
-	margin-bottom: 5px;
+a:link {
+	color: #252525 !important;
+}
+a:visited {
+	color: #252525 !important;
+}
+a:hover {
+	color: #505050 !important;
+	text-decoration: none;
+}
+a:active {
+	color: #252525 !important;
+
 }

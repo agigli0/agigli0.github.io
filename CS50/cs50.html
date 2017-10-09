@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Designed in Cambridge with love -->
+	<!-- I believe this is intellectual property of Harvard University because I made this as part of a project, so don't steal stuff unless you want their lawyers after you -->
+	<!-- Alexander Giglio, December 2016 -->
+
+	<title>CS50 Final Project</title>
+
+	<!-- http://getbootstrap.com/ -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!--Custom Css -->
+    <link href="main.css" rel="stylesheet"/>
+
+    <!-- http://p5js.org -->
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.dom.js"></script>
+</head>
+
+<body>
+	<a href="../index.html">Back to home</a>
+	<h3>Trajectory Calculator</h3>
+	
+	<!-- Load js files -->
+	<script type="text/javascript" src="setup.js"></script>
+	<script type="text/javascript" src="projectile.js"></script>
+	<script type="text/javascript" src="calculate.js"></script>
+	<script type="text/javascript" src="position.js"></script>
+	<script type="text/javascript" src="speed.js"></script>
+	<script type="text/javascript" src="draw.js"></script>
+	<script type="text/javascript" src="export.js"></script>
+
+	<div class='inputs'>
+		<p>Mass (kg)</p>
+		<input name="mass" id="m" class="form-control" type="number"/>
+		<p>Cross-Sectional Area (m<sup>2</sup>)</p>
+		<input name="area" id="A" class="form-control" type="number"/>
+		<p>Coefficient of Drag</p>
+		<input name="drag" id="cd" class="form-control" type="number"/>
+		<p>Speed (m/s)</p>
+		<input name="speed" id="v" class="form-control" type="number"/>
+		<p>Angle (degrees)</p>
+		<input name="angle" id="a" class="form-control" type="number"/>
+		<p>Initial Height (m)</p>
+		<input name="height" id="y" class="form-control" type="number"/>
+	</div>
+
+	<button class="btn btn-primary" id="calculate" onclick="calculate();">Calculate</button>
+	<br>
+	<button class="btn btn-primary" id="switchview" onclick="clickered();">Switch View</button>
+	<br>
+	<p id="warnings"></p>
+	<p>
+		The physics behind the app only hold for velocities under Mach 1 and altitudes inside the troposphere. This is meant as a visualization tool to help users understand the effects that certain factors have on air resistance, not as a modeling tool for military-grade hardware or rocket science. If you are doing those things, please don't use a college freshman's introductory computer science project.
+	</p>
+	<p>
+		I wrote this as my final project for CS50 at Harvard in my freshman year. This was my first complete programming project.
+	</p>
+</body>
+</html>

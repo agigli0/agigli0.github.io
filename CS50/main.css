@@ -1,0 +1,29 @@
+.form-control {
+	width: 300px;
+	margin: 15px;
+	margin-top: 0px;
+
+}
+
+h3 {
+	margin: 15px;
+	margin-top:0px;
+	width: 300px;
+}
+
+button {
+	width: 300px;
+	margin: 15px;
+}
+
+p {
+	margin: 15px;
+	margin-bottom: 5px;
+	width: 300px;
+}
+
+a {
+	margin: 15px;
+	margin-bottom: 5px;
+	width: 300px;
+}

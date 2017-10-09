@@ -5,12 +5,17 @@ ul {
 
 .main-menu {
 	text-align: center;
+	font-size: 150%;
 }
 
 .main-title {
-	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-top: 1%;
+	padding-bottom: 1%;
 	text-align: center;
+}
+
+h2 {
+	font-size: 300%
 }
 
 a:link {

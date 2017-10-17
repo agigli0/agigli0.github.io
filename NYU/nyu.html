@@ -15,8 +15,6 @@
 			<br>
 			<a href="../CS50/cs50.html">CS50: Trajectory Calculator</a>
 			<br>
-			<a href="../index.html">Photography</a>
-			<br>
 			<a href="../index.html">About</a>
 			<br>
 		</div>
@@ -27,7 +25,34 @@
 			During the summer of 2017, I was a research assistant for <a href="http://psych.nyu.edu/pelli/">Dr. Denis Pelli</a> in the Department of Psychology at New York University. I worked on a number of projects investigating how the mind recognizes objects.
 		</p>
 		<h2>
-			
+			Equivalent Noise Model
+		</h2>
+		<p>
+			Dr. Pelli developed <a href="http://psych.nyu.edu/pelli/pubs/pelli2017vss-peripheral-noise.pdf">a model for visual equivalent noise</a>. I worked with his model and experimental data to design visualizations in order to give viewers deep insight quickly.
+		</p>
+		<p>
+			In a vast oversimplification of decades of psychological research, equivalent noise is a measurement of how hard your brain and eyes make it for you to recognize an object. It's harder to recognize letters in dim lighting or when they're in the periphery of your vision, for example. In the Pelli model, equivalent noise is a function of many physical parameters, and so the graphs must strike a balance between showing as much of the relationship between the parameters as possible without overwhelming viewers. Since Dr. Pelli was largely interested in the phenomenon of <a href="https://en.wikipedia.org/wiki/Crowding">crowding</a>, we presented equivalent noise first and foremost as a function of eccentricity, using shading to demonstrate the effect of the other parameters.
+		</p>
+		<img src="multigraph.png" width="640">
+		<p>
+			Drawing inspiration from <a href="https://en.wikipedia.org/wiki/Phase_diagram">phase diagrams</a>, I illustrated which source of equivalent noise dominates at a given eccentricity for letters of a given size. For small objects in the center of your vision&mdash;letters on a page, perhaps&mdash;the limiting factor is photon noise, which is inversely proportional to luminance.
+		</p>
+		<img src="triple_point.png" width="480">
+		<p>
+			For the poster, we settled on a much more minimalistic graph without shading in order to reduce visual clutter and show the relationship between observer data and the model.
+		</p>
+		<img src="fig_nasal.png" width="640">
+		<p>
+			<a href="http://psych.nyu.edu/pelli/pubs/pelli2017ecvp-peripheral-noise.pdf">The final poster can be found here.</a>
+		</p>
+		<h2>
+			Braille Charts
+		</h2>
+		<p>
+			Touch object recognition was another area of interest for Dr. Pelli. In order to investigate whether the phenomenon of crowding also occured with touch, Dr. Pelli requested braille charts, similar to an ophthamologist's <a href="https://en.wikipedia.org/wiki/Eye_chart">eye chart</a>. Previous attempts to CNC mill the chart out of aluminum or laser cut it out of wood or acrylic had failed because of the very small dot diameters and heights at the bottom of the chart. I developed prototypes using CAD software and the <a href="https://formlabs.com/3d-printers/form-2/">Formlabs Form 2</a> 3D printer that both included the smallest dots and also were smooth enough that the surface finish was not a source of noise. I choose an SLA printer specifically because of its ability to construct very small details.
+		</p>
+		<h2>
+			ISETBIO
 		</h2>
 	</div>
 </body>

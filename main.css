@@ -31,10 +31,7 @@ html, body {
 .container {
 	margin: 100px;
 	height:100%;
-}
-
-a {
-	text-decoration: none;
+	width: 854px;
 }
 
 a:link {

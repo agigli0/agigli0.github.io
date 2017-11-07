@@ -49,11 +49,35 @@
 			Braille Charts
 		</h2>
 		<p>
-			Touch object recognition was another area of interest for Dr. Pelli. In order to investigate whether the phenomenon of crowding also occured with touch, Dr. Pelli requested braille charts, similar to an ophthamologist's <a href="https://en.wikipedia.org/wiki/Eye_chart">eye chart</a>. Previous attempts to CNC mill the chart out of aluminum or laser cut it out of wood or acrylic had failed because of the very small dot diameters and heights at the bottom of the chart. I developed prototypes using CAD software and the <a href="https://formlabs.com/3d-printers/form-2/">Formlabs Form 2</a> 3D printer that both included the smallest dots and also were smooth enough that the surface finish was not a source of noise. I choose an SLA printer specifically because of its ability to construct very small details.
+			Touch object recognition was another area of interest for Dr. Pelli. In order to investigate whether the phenomenon of crowding also occured with touch, Dr. Pelli requested braille charts, similar to an ophthamologist's <a href="https://en.wikipedia.org/wiki/Eye_chart">eye chart</a>. Previous attempts to CNC mill the chart out of aluminum or laser cut it out of wood or acrylic had failed because of the very small dot diameters and heights at the bottom of the chart. I developed prototypes using <a href="https://www.freecadweb.org">FreeCAD</a>, the only CAD program that would run on my archaic laptop, and the <a href="https://formlabs.com/3d-printers/form-2/">Formlabs Form 2</a> 3D printer that both included the smallest dots and also were smooth enough that the surface finish was not a source of noise. I choose an SLA printer specifically because of its ability to construct very small details. Regulation braille has dots <a href="http://www.brailleauthority.org/sizespacingofbraille/sizespacingofbraille.pdf">1.44 mm</a> in diameter, and we wanted to go about half that size.
 		</p>
+		<img src="prototype1.jpg" width="640">
+		<p>The first prototype demonstrated that the Form 2 could in fact resolve the smaller details that we desired, but printing on an angle resulted in nasty artifacts. For later versions, we printed along the axis of the dots, which resulted in a cleaner print and shorter print times.</p>
+		<img src="prototype2.jpg" width="640">
 		<h2>
 			ISETBIO
 		</h2>
+		<p>
+			There is a piece of software called <a href="http://www.imageval.com/aboutiset/">ISET</a> that was designed to make the development of new kinds of camera sensors easier. <a href="https://github.com/isetbio/isetbio/graphs/contributors">Some very smart vision scientists and programmers</a> realized that our eyes are fancy camera sensors, and modified ISET to create <a href="https://github.com/isetbio/isetbio">ISETBIO</a>, a MATLAB toolbox that allows for very detailed and accurate modeling of the human eye. It works in five steps.
+		</p>
+		<ol>
+			ISET lets us generate a sequence of images that we want our robot eye to look at.
+		</ol>
+		<ol>
+			We pass the image sequence through ISETBIO's human optics model, giving us the picture that the retina sees.
+		</ol>
+		<ol>
+			ISETBIO calculates the response of code and rod cells to the light stimulus.
+		</ol>
+		<ol>
+			We then simulate the response of bipolar cells to the cone mosaic photocurrent.
+		</ol>
+		<ol>
+			Finally, we measure retinal ganglion cell spikes.
+		</ol>
+		<p>
+			I modified ISETBIO to allow for the addition of noise to images, which allowed us to estimate the contrast threshold of our robot observer and in turn make an estimate for it visual equivalent noise as a function of added noise. My simulations found a 
+		</p>
 	</div>
 </body>
 </html>

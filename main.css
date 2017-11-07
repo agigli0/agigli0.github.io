@@ -29,8 +29,7 @@ html, body {
 }
 
 .container {
-	margin: 100px;
-	height:100%;
+	padding: 100px;
 	width: 854px;
 }
 

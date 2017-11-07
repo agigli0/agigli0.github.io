@@ -60,24 +60,34 @@
 		<p>
 			There is a piece of software called <a href="http://www.imageval.com/aboutiset/">ISET</a> that was designed to make the development of new kinds of camera sensors easier. <a href="https://github.com/isetbio/isetbio/graphs/contributors">Some very smart vision scientists and programmers</a> realized that our eyes are fancy camera sensors, and modified ISET to create <a href="https://github.com/isetbio/isetbio">ISETBIO</a>, a MATLAB toolbox that allows for very detailed and accurate modeling of the human eye. It works in five steps.
 		</p>
-		<ol>
-			ISET lets us generate a sequence of images that we want our robot eye to look at.
-		</ol>
-		<ol>
-			We pass the image sequence through ISETBIO's human optics model, giving us the picture that the retina sees.
-		</ol>
-		<ol>
-			ISETBIO calculates the response of code and rod cells to the light stimulus.
-		</ol>
-		<ol>
-			We then simulate the response of bipolar cells to the cone mosaic photocurrent.
-		</ol>
-		<ol>
-			Finally, we measure retinal ganglion cell spikes.
-		</ol>
 		<p>
-			I modified ISETBIO to allow for the addition of noise to images, which allowed us to estimate the contrast threshold of our robot observer and in turn make an estimate for it visual equivalent noise as a function of added noise. My simulations found a 
+			ISET lets us generate a sequence of images that we want our robot eye to look at. We pass the image sequence through ISETBIO's human optics model, giving us the picture that the retina sees.
 		</p>
+			<video autoplay="autoplay" loop="loop" width="400" height="400">
+  				<source src="oi_sequence.mp4" type="video/mp4" />
+  			</video>
+		<p>
+			ISETBIO calculates the response of cone and rod cells to the light stimulus.
+		</p>
+			<video autoplay="autoplay" loop="loop" width="400" height="400">
+  				<source src="cones.mp4" type="video/mp4" />
+  			</video>
+		<p>
+			We then simulate the response of bipolar cells to the cone mosaic photocurrent.
+		</p>
+			<video autoplay="autoplay" loop="loop" width="400" height="400">
+  				<source src="bipolar.mp4" type="video/mp4" />
+  			</video>
+		<p>
+			Finally, we compute retinal ganglion cell spikes.
+		</p>
+			<video autoplay="autoplay" loop="loop" width="400" height="400">
+  				<source src="rgc.mp4" type="video/mp4" />
+  			</video>
+		<p>
+			I modified ISETBIO to allow for the addition of noise to images, which allowed us to estimate the contrast threshold of our robot observer as a function of noise and in turn make an estimate for visual equivalent noise as a function of added noise. Human observers demonstrate equivalent noise of around 10<sup>-6</sup> s&middot;deg<sup>2</sup> under the conditions that I simulated, whereas the ISETBIO simulated observer demonstrated equivalent noise between 10<sup>-4</sup> and 10<sup>-5</sup> s&middot;deg<sup>2</sup>.
+		</p>
+		<div class="footer"></div>
 	</div>
 </body>
 </html>

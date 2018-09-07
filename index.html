@@ -1,9 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Alex Giglio</title>d
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link href="css/main.css" rel="stylesheet">
+  <title>Alex Giglio's Portfolio</title>
 </head>
 <body>
-	Hi!
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 text-center">
+        <h1>Alex Giglio's Projects</h1>
+      </div>
+      <div class="col-lg-5 text-center">
+        <a href="https://www.linkedin.com/in/alex-giglio-957157149/" class="text-center">
+          <button class="btn btn-primary">
+            LinkedIn
+          </button>
+        </a>
+        <a href="mailto:agiglio@college.harvard.edu" class="text-center">
+          <button class="btn btn-primary">
+            Email
+          </button>
+        </a>
+        <a href="alex_giglio_resume.pdf" class="text-center ">
+          <button class="btn btn-primary">
+            R&eacutesum&eacute
+          </button>
+        </a>
+      </div>
+    </div>
+    <p class="text-center">
+      I'm Alex, a junior studying mechanical engineering at Harvard. These are some of the projects that I've worked on in college.
+    </p>
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="card">
+          <a href="ES123/ES123.html">
+              <video width="100%" height="100%" loop="loop" autoplay>
+                <script>
+                  var video = document.currentScript.parentElement;
+                  video.volume = 0;
+                </script>
+                <source src="ES123/cover.mp4" type="video/mp4">
+              </video>
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="ES123/ES123.html">
+                ES123: Science of Splashback
+              </a>
+            </h4>
+            <p class="card-text">
+              An examination of sanitation from a fluid mechanics perspective
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="card">
+          <a href="ES52/ES52.html">
+            <img class="card-img-top" src="ES52/cover.jpg">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="ES52/ES52.html">
+                ES52: Autodrum
+              </a>
+            </h4>
+            <p class="card-text">
+              I made a drum machine for an intro circuits course.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="card">
+          <a href="NYU/nyu.html">
+            <img class="card-img-top" src="NYU/nyu_card_pic.jpg">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="NYU/NYU.html">
+                NYU Psychology and Neural Science
+              </a>
+            </h4>
+            <p class="card-text">
+              I was a research assistant for a summer in the NYU Department of Psychology and Neural Science.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="card">
+          <a href="ES51/ES51.html">
+            <img class="card-img-top" src="ES51/cover.jpg">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="ES51/ES51.html">
+                ES51: Turf Wars
+              </a>
+            </h4>
+            <p class="card-text">
+              I made a robot that throws ping pong balls for intro CAD/CAM.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="card">
+          <a href="CS50/CS50.html">
+            <img class="card-img-top" src="CS50/cover.png">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="CS50/CS50.html">
+                CS50: Trajectory Calculator
+              </a>
+            </h4>
+            <p class="card-text">
+              My intro computer science final project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>NYU Psychology and Neural Science</title>
+</head>
+<body>
+  <div class="container">
+    <h4><a href="../index.html">Home</a></h4>
+    <h1>NYU Psychology and Neural Science</h1>
+    <p>
+      During the summer of 2017, I was a research assistant for <a href="http://psych.nyu.edu/pelli/">Dr. Denis Pelli</a> in the Department of Psychology at New York University. I worked on a number of projects investigating how the mind recognizes objects.
+    </p>
+    <h2>
+      Equivalent Noise Model
+    </h2>
+    <p>
+      Dr. Pelli developed <a href="http://psych.nyu.edu/pelli/pubs/pelli2017vss-peripheral-noise.pdf">a model for visual equivalent noise</a>. I worked with his model and experimental data to design visualizations in order to give viewers deep insight quickly.
+    </p>
+    <p>
+      In a vast oversimplification of decades of psychological research, equivalent noise is a measurement of how hard your brain and eyes make it for you to recognize an object. It's harder to recognize letters in dim lighting or when they're in the periphery of your vision, for example. In the Pelli model, equivalent noise is a function of many physical parameters, and so the graphs must strike a balance between showing as much of the relationship between the parameters as possible without overwhelming viewers. Since Dr. Pelli was largely interested in the phenomenon of <a href="https://en.wikipedia.org/wiki/Crowding">crowding</a>, we presented equivalent noise first and foremost as a function of eccentricity, using shading to demonstrate the effect of the other parameters.
+    </p>
+    <div class = "row justify-content-center">
+      <img src="multigraph.png" class="col-lg-8 col-md-10 col-sm-12">
+    </div>
+    <p>
+      Drawing inspiration from <a href="https://en.wikipedia.org/wiki/Phase_diagram">phase diagrams</a>, I illustrated which source of equivalent noise dominates at a given eccentricity for letters of a given size. For small objects in the center of your vision&mdash;letters on a page, perhaps&mdash;the limiting factor is photon noise, which is inversely proportional to luminance.
+    </p>
+    <div class = "row justify-content-center">
+      <img src="triple_point.png" class="col-lg-6 col-md-8 col-sm-12">
+    </div>
+    <p>
+      For the poster, we settled on a much more minimalistic graph without shading in order to reduce visual clutter and show the relationship between observer data and the model.
+    </p>
+    <div class = "row justify-content-center">
+      <img src="fig_nasal.png" class="col-lg-8 col-md-10 col-sm-12">
+    </div>
+    <p>
+      <a href="http://psych.nyu.edu/pelli/pubs/pelli2017ecvp-peripheral-noise.pdf">The final poster can be found here.</a>
+    </p>
+    <h2>
+      Braille Charts
+    </h2>
+    <p>
+      Touch object recognition was another area of interest for Dr. Pelli. In order to investigate whether the phenomenon of crowding also occured with touch, Dr. Pelli requested braille charts, similar to an ophthamologist's <a href="https://en.wikipedia.org/wiki/Eye_chart">eye chart</a>. Previous attempts to CNC mill the chart out of aluminum or laser cut it out of wood or acrylic had failed because of the very small dot diameters and heights at the bottom of the chart. I developed prototypes using Fusion 360 and the <a href="https://formlabs.com/3d-printers/form-2/">Formlabs Form 2</a> 3D printer that both included the smallest dots and also were smooth enough that the surface finish was not a source of noise. I choose an SLA printer specifically because of its ability to construct very small details. Regulation braille has dots <a href="http://www.brailleauthority.org/sizespacingofbraille/sizespacingofbraille.pdf">1.44 mm</a> in diameter, and we wanted to go about half that size.
+    </p>
+    <div class = "row justify-content-center">
+      <img src="prototype1.jpg" class="col-lg-6 col-md-8 col-sm-12">
+    </div>
+    <p>
+      The first prototype demonstrated that the Form 2 could in fact resolve the smaller details that we desired, but printing on an angle resulted in nasty artifacts. For later versions, we printed along the axis of the dots, which resulted in a cleaner print and shorter print times.
+    </p>
+    <div class = "row justify-content-center">
+      <img src="prototype2.jpg" class="col-lg-6 col-md-8 col-sm-12">
+    </div>
+    <h2>
+      ISETBIO
+    </h2>
+    <p>
+      There is a piece of software called <a href="http://www.imageval.com/aboutiset/">ISET</a> that was designed to make the development of new kinds of camera sensors easier. <a href="https://github.com/isetbio/isetbio/graphs/contributors">Some very smart vision scientists and programmers</a> realized that our eyes are fancy camera sensors, and modified ISET to create <a href="https://github.com/isetbio/isetbio">ISETBIO</a>, a MATLAB toolbox that allows for very detailed and accurate modeling of the human eye. It works in five steps.
+    </p>
+
+    <div class="row justify-content-center align-items-center">
+      <p class="col-lg-8 col-md-6 col-sm-12">
+        ISET lets us generate a sequence of images that we want our robot eye to look at. We pass the image sequence through ISETBIO's human optics model, giving us the picture that the retina sees.
+      </p>
+      <video autoplay="autoplay" loop="loop" class="col-lg-4 col-md-6 col-sm-12">
+        <source src="oi_sequence.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p></p>
+    <div class="row justify-content-center align-items-center">
+      <p class="col-lg-8 col-md-6 col-sm-12">
+        ISETBIO calculates the response of cone and rod cells to the light stimulus.
+      </p>
+      <video autoplay="autoplay" loop="loop" class="col-lg-4 col-md-6 col-sm-12">
+        <source src="cones.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p></p>
+    <div class="row justify-content-center align-items-center">
+      <p class="col-lg-8 col-md-6 col-sm-12">
+        We then simulate the response of bipolar cells to the cone mosaic photocurrent.
+      </p>
+      <video autoplay="autoplay" loop="loop" class="col-lg-4 col-md-6 col-sm-12">
+        <source src="bipolar.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p></p>
+    <div class="row justify-content-center align-items-center">
+      <p class="col-lg-8 col-md-6 col-sm-12">
+        Finally, we compute retinal ganglion cell spikes as a response to the bipolar cells firing.
+      </p>
+      <video autoplay="autoplay" loop="loop" class="col-lg-4 col-md-6 col-sm-12">
+        <source src="rgc.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p></p>
+    <p>
+      I modified ISETBIO to allow for the addition of noise to images, which allowed us to estimate the contrast threshold of our robot observer as a function of noise and in turn make an estimate for visual equivalent noise as a function of added noise. Human observers demonstrate equivalent noise of around 10<sup>-6</sup> s&middot;deg<sup>2</sup> under the conditions that I simulated, whereas the ISETBIO simulated observer demonstrated equivalent noise between 10<sup>-4</sup> and 10<sup>-5</sup> s&middot;deg<sup>2</sup>.
+    </p>
+    <h4><a href="../index.html">Home</a></h4>
+</body>
+</html>

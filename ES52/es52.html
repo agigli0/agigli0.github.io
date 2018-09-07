@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>ES52: Autodrum</title>
+</head>
+<body>
+  <div class="container">
+    <h4><a href="../index.html">Home</a></h4>
+    <h1>ES52: Autodrum</h1>
+    <h3>Demo Video</h3>
+    <div id=aspect-ratio>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aCZOi6bBr6A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <h3>The Project</h3>
+    <p>
+        Engineering Sciences 52: The Joy of Electronics was the introductory electronics course that I took in fall of 2017. It was my first opportunity to design analog and digital circuits. For my final project I made Autodrum, a drum machine and piano with simple playback functionality.
+    </p>
+    <img src="main.jpg" width="100%">
+    <p class="text-center">
+        <em>The finished Autodrum circuit</em>
+    </p>
+    <p></p>
+    <a href="fullschematic.png"><img src="fullschematicsmall.png" width="100%"></a>
+    <p class="text-center">
+        <em>Full circuit diagram. Click for larger version</em>
+    </p>
+    <p></p>
+    <img src="blockdiagram.jpg" width="100%">
+    <p class="text-center">
+        <em>Block diagram</em>
+    </p>
+    <p>
+        Autodrum has four main components
+    </p>
+    <ol>
+        <li>Analog circuitry to generate kick drum, snare drum, and piano sound waveforms</li>
+        <li>Digital circuitry to measure intervals between button presses in order to play back drum sounds at a specified rate</li>
+        <li>Interface circuitry that allowed a single set of buttons to both trigger the drums and activate the playback feature</li>
+        <li>A simple signal mixer and amplifier</li>
+    </ol>
+    <h3>Piano</h3>
+    <img src="piano.png" width="100%">
+    <p>
+        The piano circuit consists of a 555 timer attached to a button-controlled resistor ladder. Pressing the buttons changes the RC constant that determines the frequency of the timer, which in turn changes the frequency of the sound output. I fed the pseudo-triangular wave timing signal of the 555 timer into three second-order filters, which output a very close approximation of a sine wave. That sine wave is fed into an analog multiplier twice in order to produce a squared sine wave, which has a frequency twice that of the initial sine wave. Combining these back together created a pleasant sound that had the first and second harmonics of the chosen notes.
+    </p>
+    <h3>Kick Drum</h3>
+    <img src="kick.png" width="100%">
+    <p>
+        The kick drum circuit uses a 555 timer to create a low-frequency square wave. This square wave is fed into two MOSFETs that use exponential decay signals from a capacitor to create a decaying square wave.
+    </p>
+    <img src="squarewave.jpg" width="100%">
+    <p class="text-center">
+        <em>How we get a decaying square wave</em>
+    </p>
+    <p>
+        The decaying square wave signal is then passed into three second order low-pass filters, which leaves us with a decaying sine-like wave.
+    </p>
+    <h3>Snare Drum</h3>
+    <img src="snare.png" width="100%">
+    <p>
+        The snare drum sound is white noise modulated with a decaying envelope. The white noise is created using a Zener diode (D3), a high-pass filter, and amplification. This is fed into an analog multiplier, where it is multiplied with an exponential decay signal from a capacitor to give us a white noise signal that starts out loud and quickly quiets down.
+    </p>
+    <h3>Mixer, Volume Controller, and Amplifier</h3>
+    <img src="Speaker.png" width="100%">
+    <p>
+        To make sure that all the signals came out of the speaker, I used an op-amp to sum the signals from the three instruments. I passed the summed signal to a high-pass filter so that no DC signal would be fed to the speaker, and I used a potentiometer (R48) as volume control. The potentiometer-attenuated signal was fed into a Class B push-pull amplifier in order to supply the current necessary to drive the low-impedance speaker.
+    </p>
+    <p>
+        <em> Note: Even after learning about n-type and p-type silicon and the material science behind semiconductors, bipolar junction transistors are still black magic to me.</em>
+    </p>
+    <h3>Digital Playback Circuitry</h3>
+    <img src="Digital.png" width="100%">
+    <p>
+        While a microcontroller would have been much neater than the mess of wires above, I wouldn't have nearly as much practice as I do now with digital circuitry and finite state machines. The digital circuitry allows the user to press a drum button a couple times and then have the circuit automatically play back the drums at the same rate that the user played them. The circuit does this using one counter to measure the interval between button presses and then another counter to loop back to zero every time it has counted out the prescribed interval.
+    </p>
+    <img src="tempointerval.png" width="100%">
+    <p class="text-center">
+        <em>One of the playback circuits</em>
+    </p>
+    <p>
+        The timer in the digital circuitry ran at around 64 Hz. Suppose, for example, that the user tapped the drum button twice at 120 BPM. On the first press, the interval counter (U5 and U6) would start counting at 64 Hz. After half a second, the user presses the button again, and the interval counter stops with the value 31 at its binary output. This output is fed to an 8-bit equality comparator (U9). In the meantime, the tempo counter (U7 and U8) is constantly counting from zero to 255 over and over again. The output of the tempo counter is also fed to the 8-bit equality comparator. When the two outputs are the same, the equality comparator sends a signal that clears the tempo counters and triggers the drums. Because the interval counters are fixed outputting 31, the tempo counters clear every 32 cycles, and the drums are triggered every time the tempo counters clear, the drums play back automatically at 120 BPM.
+    </p>
+    <h3>Other Thoughts</h3>
+    <p>
+        There were a couple issues with the user experience of this device. If I had to built it again, I would have used separate power supplies for the digital and analog circuitry so that I could have a higher-voltage supply for the speaker. As it was, the sound coming out of the device was pretty quiet. The snare drum sound was very quiet because it the signal would start clipping when I amplified it. With more time, I would have built a compressor. The time resolution of the digital circuitry was also too high; it made it impossible to sync up the kick and snare drums. I think 16 Hz or 8 Hz would be more appropriate.
+    </p>
+    <p>
+        Overall, though, this was a really fun experience. I went from knowing how to make a flashlight to making a simple drum kit in a few months, and I got a lot of practice creating proper documentation.
+    </p>
+    <video autoplay="autoplay" loop="loop" width="100%" volume="0">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="mdb.mp4" type="video/mp4" />
+    </video>
+    <p class="text-center">
+        <em>ES52 Teaching Fellow, Mr. Dragon Bear</em>
+    </p>
+    <h4><a href="../index.html">Home</a></h4>
+  </div>
+</body>
+</html>

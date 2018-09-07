@@ -67,7 +67,7 @@
         The snare drum sound is white noise modulated with a decaying envelope. The white noise is created using a Zener diode (D3), a high-pass filter, and amplification. This is fed into an analog multiplier, where it is multiplied with an exponential decay signal from a capacitor to give us a white noise signal that starts out loud and quickly quiets down.
     </p>
     <h3>Mixer, Volume Controller, and Amplifier</h3>
-    <img src="Speaker.png" width="100%">
+    <img src="speaker.png" width="100%">
     <p>
         To make sure that all the signals came out of the speaker, I used an op-amp to sum the signals from the three instruments. I passed the summed signal to a high-pass filter so that no DC signal would be fed to the speaker, and I used a potentiometer (R48) as volume control. The potentiometer-attenuated signal was fed into a Class B push-pull amplifier in order to supply the current necessary to drive the low-impedance speaker.
     </p>
@@ -75,7 +75,7 @@
         <em> Note: Even after learning about n-type and p-type silicon and the material science behind semiconductors, bipolar junction transistors are still black magic to me.</em>
     </p>
     <h3>Digital Playback Circuitry</h3>
-    <img src="Digital.png" width="100%">
+    <img src="digital.png" width="100%">
     <p>
         While a microcontroller would have been much neater than the mess of wires above, I wouldn't have nearly as much practice as I do now with digital circuitry and finite state machines. The digital circuitry allows the user to press a drum button a couple times and then have the circuit automatically play back the drums at the same rate that the user played them. The circuit does this using one counter to measure the interval between button presses and then another counter to loop back to zero every time it has counted out the prescribed interval.
     </p>

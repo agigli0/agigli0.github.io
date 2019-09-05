@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>Superpedestrian Summer</title>
+</head>
+<body>
+  <div class="container">
+    <h4><a href="../index.html">Home</a></h4>
+    <h1>
+      Superpedestrian Summer
+    </h1>
+    <p>
+      In the summer of 2018, after my sophomore year, I did a mechanical engineering internship at Cambridge startup <a href="https://superpedestrian.com">Superpedestrian</a>. They're most well-known for the Copenhagen Wheel, an complete e-bike conversion kit contained completely inside a wheel.
+    </p>
+    <img width=100% src="skinnyjeans.jpg">
+    <p>
+      When I started work, the company hadn't made a full, public committment to the share scooter space, so about half of the work that I did was continuing engineering on the Cophenhagen Wheel. The other half of the work I did was designing and prototyping lock solutions for a concept dockless sharebike.
+    </p>
+
+    <h2>
+      Spoke tension measurement using sound.
+    </h2>
+    <p>
+      I did a number of projects and testing for the Copenhagen Wheel. The one that I enjoyed the most was acoustic spoke tension measurement. Unlike a normal bike wheel with spokes that cross over each other, the spokes of a Copenhagen wheel are uninterrupted spans between the hub and the rim.
+    </p>
+    <img src="comparison.png" width="100%">
+    <p>
+      This means that they vibrate quite nicely and make a very clear sound when plucked. I was tasked with creating a procedure for determing spoke tension using sound so that riders could do maintenance on their own wheels without needing an expensive hand tension meter.
+    </p>
+    <p>
+      The first thing I did was decide on an appropriate physical model. Initially, I treated the spokes as <a href="https://en.wikipedia.org/wiki/String_vibration#Frequency_of_the_wave">strings under tension</a>, but this proved to be a poor approximation because a spoke under standard tension has too much resistance to bending. On the other hand, I couldn't use the <a href="https://en.wikipedia.org/wiki/Euler–Bernoulli_beam_theory#Example:_unsupported_(free-free)_beam">standard beam vibration formulae</a> because the beam was under axial tension. Luckily, the good folks at NASA developed <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19760006440.pdf">a model for the vibration of beams under axial load</a> back in the '70s. The equation I derived with their help gives a formula that is a hybrid of the beam and string equations.
+    </p>
+    <div class="row justify-content-center">
+      <img src="equation.png" class="col-lg-4 col-sm-6">
+    </div>
+    <p>
+      <em>L</em> is spoke length, <em>E</em> is elastic modulus, <em>I</em> is second moment of area, mu is linear mass density, and <em>T</em> is tension force.
+    </p>
+    <h2>
+      Dockless sharebike locking
+    </h2>
+      <p>
+        If you make a dockless sharebike or share scooter like <a href="https://www.li.me">Lime</a> or <a href="https://jump.com">Jump</a> or now Superpedestrian, you probably want a way for customers to lock their vehicle to a streetpost so that it doesn't end up on <a href="https://www.instagram.com/birdgraveyard/">@birdgraveyard</a>. Superpedestrian's current micromobility platform has a built-in cable lock similar to the one that I was tasked to prototype for a bike system.
+      </p>
+      <img src="cambridge_bikes.png" width="100%">
+      <p>
+        I took a stroll around Cambridge to document how people locked their bikes onto things on the street. I analyzed the market for existing bike lock solutions, including those not tailored for sharebikes. I brainstormed a number of solutions on paper first and then in CAD. 
+      </p>
+      <div class="row">
+        <img class="col-lg-6 col-sm-12" src="brainstorming.png" width="100%">
+        <img class="col-lg-6 col-sm-12" src="seatpost_CAD.png" width="100%">
+      </div>
+      <p>
+        I did a design review with the engineering team and got the go-ahead to begin prototyping a retractable cable lock system. The first prototype was a 1-hour proof-of-concept made from a wire conduit, some flat washers, a rope, and a bolt. The later ones were made from PVC pipe and deconstructed off-the-shelf cable locks. The final one was made from machined and 3D-printed parts, and had an Arduino-controlled lock mechanism taken from an off-the-shelf horseshoe lock.
+      </p>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <img src="p1.jpg" width="100%">
+          <p class="text-center">Proof-of-concept</p>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <img src="p2.jpg" width="100%">
+          <p class="text-center">Made from deconstructed cable locks</p>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <img src="p3.jpg" width="100%">
+          <p class="text-center">Made from machined parts</p>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <img src="p4.jpg" width="100%">
+          <p class="text-center">Designed and 3D-printed a lock</p>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <img src="p5.jpg" width="100%">
+          <p class="text-center">3D-printed lock mechanism on top left, plywood Arduino/battery enclosure on bottom right</p>
+        </div>
+      </div>
+
+    <h4><a href="../index.html">Home</a></h4>
+  </div>
+</body>
+</html>

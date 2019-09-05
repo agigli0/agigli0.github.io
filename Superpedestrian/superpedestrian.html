@@ -40,8 +40,15 @@
       <img src="equation.png" class="col-lg-4 col-sm-6">
     </div>
     <p>
-      <em>L</em> is spoke length, <em>E</em> is elastic modulus, <em>I</em> is second moment of area, mu is linear mass density, and <em>T</em> is tension force.
+      <em>L</em> is spoke length, <em>E</em> is elastic modulus, <em>I</em> is second moment of area, mu is linear mass density, and <em>T</em> is tension force. The term on the left under the radical is the contribution to fundamental frequency from the spoke's stiffness, and the term on the right under the radical is the contribution to fundamental frequency due to the spoke tension.
     </p>
+    <p>
+      Then I went around the Superpedestrian office and took measurements on every single wheel I could find. I measured each spoke's tension using a hand tension meter and its fundamental vibration frequency using a spectrum analyzer iPhone app. There are four configurations of Copenhagen Wheels, each configuration has a different spoke length on each side, and each wheel has 36 spokes. I measured about five wheels of each configuration, meaning I plucked around 720 spokes for my final measurement set.
+    </p>
+    <p>
+      I ran the data through a Python script and fit the model to the data. The residuals were roughly normally-distributed, so I did some statistical inference to give users an estimate of how likely their spokes are tensioned based on the official acceptable tension range.
+    </p>
+    <img src="graphs.png" width="100%">
     <h2>
       Dockless sharebike locking
     </h2>
@@ -59,7 +66,7 @@
       <p>
         I did a design review with the engineering team and got the go-ahead to begin prototyping a retractable cable lock system. The first prototype was a 1-hour proof-of-concept made from a wire conduit, some flat washers, a rope, and a bolt. The later ones were made from PVC pipe and deconstructed off-the-shelf cable locks. The final one was made from machined and 3D-printed parts, and had an Arduino-controlled lock mechanism taken from an off-the-shelf horseshoe lock.
       </p>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-lg-6 col-sm-12">
           <img src="p1.jpg" width="100%">
           <p class="text-center">Proof-of-concept</p>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ES128: The Archer's Paradox</title>
+</head>
+<body>
+  <div class="container">
+    <h4><a href="../index.html">Home</a></h4>
+    <h1>ES128: The Archer's Paradox</h1>
+    <p>
+      I took ES128: Computational Solid and Structural Mechanics, Harvard's undergraduate finite element analysis course, in spring of 2019. In the final project for this class, we were tasked with using ABAQUS to simulate a real-world situation to better understand it. Fellow mechanical engineering student Jonathan Goettsch and I developed a simulation of a bow and arrow firing to better understand the mechanisms behind the <a href="https://en.wikipedia.org/wiki/Archer%27s_paradox">Archer's Paradox</a>. We were inspired by <a href="https://www.youtube.com/watch?v=O7zewtuUM_0">SmarterEveryDay's video on the topic</a>.
+    </p>
+
+
+    <h2>Physical Parameters</h2>
+    <p>
+      All materials were modeled as isotropic. The bow was modeled as a curved circular beam made of wood, and its string was a very thin beam made of PET plastic. The arrow was modeled as a straight wooden beam of circular cross section having the same dimensions as a standard 71 cm arrow. To model the mass of an arrowhead, we added a point mass to the end of the arrow.
+    </p>
+
+
+    <h2>Approach 1</h2>
+    <div class="row justify-content-center">
+      <div class="lg-col-6">
+        <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+            <script>
+                var video = document.currentScript.parentElement;
+                video.volume = 0;
+            </script>
+            <source src="approach_1.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    <p>
+      The first approach was a 2D dynamic implicit simulation with nonlinear geometry. The arrow was simulated using quadratic beam elements, since we cared mostly about the flexing of the entire arrow. What you see above is supposed to be a top-down view of an arrow being fired, with the black semicircle representing the part of the bow that could come into contact with the arrow. The arrow was propelled by a force with linearly decreasing magnitude applied to the back of the arrow.
+    </p>
+    <p>
+      The reason why this simulation failed was that the force applied to the back of the arrow was constant in direction; in a real bow, the string applies a stable, restoring force that keeps the arrow on line. If we wanted to get to the root of the archer's paradox, we would have to either write a FORTRAN subroutine to constantly change the direction of the applied force, or just simulate an entire bow. Simulating a bow was easier.
+    </p>
+
+
+    <h2>Approach 2</h2>
+    <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="approach_2.mp4" type="video/mp4" />
+    </video>
+    <p>
+      Our second simulation had the same arrow but included a bow and string, both made from quadratic beam elements. A beam with a very thin diameter and low density functions much like a string does in real life. In this simulation, the arrow was first given an initial displacement to the left in a static step. A frictional contact interaction between the back of the arrow and the string caused the bow to be drawn. Then in a dynamic step, the arrow was released. This simulation, limited by two spatial dimensions, lacked the bow-arrow contact interaction that we would expect to see in real life, but it was an excellent start.
+    </p>
+
+
+    <h2>Approach 3</h2>
+    <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="approach_3_z.mp4" type="video/mp4" />
+    </video>
+    <p>
+      Our third simulation was similar to the second. There was the addition of additional degrees of freedom due to being in three-dimensional space, and we added some pre-tension to the string as one would expect in real life. A frictional contact interaction between the bow and the arrow was included as well.
+    </p>
+    <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="approach_3_y.mp4" type="video/mp4" />
+    </video>
+    <p>
+       The issue with this simulation was that the back of the arrow was constrained to be parallel with the x-axis for some unknown reason. This caused unnatural behavior.
+    </p>
+
+    <h2>Approach 4</h2>
+    <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="approach_4.mp4" type="video/mp4" />
+    </video>
+    <p>
+      Our fourth and final simulation had two important additions. First, we added a small solid part to the back of the arrow that had a notch to hold onto the bow string a little longer. Second, we applied a small force perpendicular to the motion of the arrow at the back of the arrow to simulate the string rolling off the archer's fingers. The result was an accurate recreation of arrow dynamics, with the arrow buckling to fly straight despite the bow being in its way.
+    </p>
+
+
+    <h4><a href="../index.html">Home</a></h4>
+  </div>
+</body>
+</html>

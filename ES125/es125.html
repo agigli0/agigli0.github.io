@@ -13,7 +13,38 @@
 <body>
   <div class="container">
     <h4><a href="../index.html">Home</a></h4>
-    
+    <h1>ES125 Supermodified Egg Drop</h1>
+    <p>
+      I had the pleasure of taking ES125: Introduction to Mechanical Systems under <a href="https://www.seas.harvard.edu/directory/bkoz">Professor Boris Kozinsky</a>, an absolutely phenomenal teacher. The final project for the course was to use our knowledge of linear dynamical systems to make a shock absorber for an egg drop competition. 
+    </p>
+    <video playsinline autoplay="autoplay" loop="loop" width="100%" volume="0" muted="muted">
+        <script>
+            var video = document.currentScript.parentElement;
+            video.volume = 0;
+        </script>
+        <source src="slowmo_wide.mp4" type="video/mp4" />
+    </video>
+    <p>
+      The shock absorber was to rest underneath a sled that was dropped along two vertical rails. On top of the sled was a fake egg and an accelerometer. Points were awarded for not breaking the egg and for having a low maximum deceleration. We were given two 24"x12" sheets of acetal plastic, a laser cutter, and a box full of springs and dampers used for RC car shocks.
+    </p>
+    <p>
+      Our mechanical design had long arms so that we could spread the deceleration over a longer distance, and room for the maximum number of dampers. The long arms also allowed us to use the arms themselves as shock absorbers. I designed the entire CAD in Solidworks. The design utilized tab-and-slot t-nut assemblies, which allowed us to securely mount sheets of laser-cut acetal at right angles to each other.
+    </p>
+    <img width=100% src="CAD.jpg">
+    <p>
+      I also wrote some MATLAB code based on our linearized model of the system that calculated the expected maximum deceleration of the egg based on the spring and damper constants of the shocks we could choose from. We used this to inform our choice of shocks.
+    </p>
+    <div class="row justify-content-center">
+      <img src="fig1.png" class="col-lg-6">
+      <img src="fig3.png" class="col-lg-6">
+    </div>
+    <p>
+      Then we cut and assembled it. Our system had the lowest max deceleration in the class!
+    </p>
+    <img width="100%" src="photo.jpg">
+    <p>
+      Thank you to Terrance Williams, <a href="https://www.linkedin.com/in/theresa-manivanh-bb9908137/">Theresa Manivanh</a>, and <a href="https://www.linkedin.com/in/heikokabutz/">Heiko Kabutz</a> for being awesome to work with.
+    </p>
     <h4><a href="../index.html">Home</a></h4>
   </div>
 </body>

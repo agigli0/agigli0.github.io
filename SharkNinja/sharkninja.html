@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Script stuff for bootstrap and jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SharkNinja Summer</title>
+</head>
+<body>
+  <div class="container">
+    <h4><a href="../index.html">Home</a></h4>
+    <h1>
+      SharkNinja Summer
+    </h1>
+    <p>
+    	In the summer of 2019, after my junior year of college, I did an internship with Boston-area-based home appliance company SharkNinja as a mechanical engineering intern on the Shark Advanced Development team. We developed cordless vacuum cleaner nozzles like the one on the Rocket Pet Pro.
+    </p>
+    <img src="rpp_nozzle.jpg" width="100%">
+    <p class="text-center">A Rocket Pet Pro nozzle</p>
+    <h2>A note on cordless vacuum nozzles</h2>
+    <p>
+    	Cordless vaccums' biggest advantage&mdash;their cordless-ness&mdash;is a direct consequence of their biggest weakness&mdash;their batteries. A more powerful motor will suck harder and allow you to clean bigger and badder messes, but it requires more power. The more power your motor requires, the bigger your battery will need to be. The bigger your battery, the heavier your vacuum cleaner will be, and the worse your brand looks.
+    </p>
+    <p>
+    	The power constraint is one huge reason why nozzles are so important to staying competitive in the cordless vacuum marketplace. When your power is limited by form factor and chemistry, you need to squeeze every last milligram of cleaning ability out of your machine by optimizing your nozzle.
+    </p>
+    <p>
+    	Another reason why nozzles are so important is their ability market the entire product. If your nozzle looks like it can clean better, then people will be more likely to use it.
+    </p>
+    <img src="zero_m.jpg" width="100%">
+    <p class="text-center">Shark's lineup of innovative brushroll technologies</p>
+    <p>
+    	Do you see those yellow and orange things on the nozzles above? Those are called brushrolls. They spin around at around 1000 revolutions per minute and help with cleaning by agitating carpets and lifting debris off floor surfaces. Instead of hiding them inside an opaque nozzle housing, Shark decided to aggressively mark their innovations in brushroll technology. They put transparent windows on their nozzles so you can see their inner workings and colored the brushes and flaps in bright oranges and yellows so they're more visible. The helix patterns have a functional purpose, moving debris in a more efficient path, but they also nicely draw attention to the movement of the brushrolls.
+    </p>
+    <p>
+    	Lastly, the nozzle is where all the steering components are. There's that weird two degree-of-freedom joint at the back that allows you to steer the nozzle where you want just by twisting your wrist a little. The geometry of that joint combine with the geometry of the wheels has a massive effect on handling. A few inches' difference in wheel placement can mean a vacuum that won't turn or one that slides around like a hockey puck.
+    </p>
+    <p>
+    	Vacuum cleaner nozzles are unbelievably complex, and I spent an entire summer working on them only to barely scratch the surface.
+    </p>
+    <br>
+    <h2>My work</h2>
+    <p>
+    	While my work was probably closest to that of a test engineer, I was involved in a huge range of activities. Given a vacuum cleaning test procedure, I would design an experiment, draft required parts in CAD, 3D print them, Frankestein them onto an existing vacuum cleaner, and run an experiment. We varied all kinds of mechanical design factors to improve cleaning performance and handling.
+   	</p>
+   	<div class="row justify-content-center">
+      <img src="omni_wheels.jpg" class="col-lg-6 col-sm-8 col-xs-12" height="100%">
+    </div>
+    <p class="text-center">Quick-and-dirty prototype to test the handling of a nozzle with rear omni-wheels. It felt terrible.</p>
+    <br>
+    <div class="row justify-content-center">
+      <img src="caster_ball.jpg" class="col-lg-8 col-sm-8 col-xs-12" height="100%">
+    </div>
+    <p class="text-center">An adjustable caster ball I made from screw hardware to replace the front wheels on a Rocket Pet Pro nozzle. This also felt pretty bad.</p>
+    <br>
+    <p>
+    	Every factor was considered. We measured how well each nozzle cleaned from the front, from the sides, against walls, over tiles, on different kinds of carpets, and with different kinds of debris. We adjusted the types of brushes, bristles, and flaps on brushrolls, changing the durometers of rubbers and the shapes of the helix patterns. Heck, I weighed weighed an entire box of Cheerios one piece at a time as part of an experiment to determine the proportion of abnormally-large ones (fun fact: they weigh around 90 milligrams each).
+    </p>
+    <br>
+    <h3>Bare-Floor Engagement</h3>
+    <img src="duoclean.jpg" width="100%">
+    <br>
+    <br>
+    <p>
+    	One nozzle aspect that was important to us was how well the brushroll dug into carpets. If the bristles or flaps didn't dig into the carpet enough, the vacuum cleaner wouldn't be able to remove dirt effectively. If they dug in too deep, then it would be too hard to push the nozzle, and the brushroll might stall, damaging its motor.
+    </p>
+    <p>
+    	I designed a measurement device and a piece of computer vision software to go along with it that allowed us to measure how far below the plane of the nozzle's wheels the tips of brushroll bristles descended. This distance, an estimate of how much the bristles would dig into carpets, was called bare-floor engagement.
+    </p>
+    <p>
+    	For intellectual property reasons, I can't tell you exactly how the system worked. The physical device allowed an operator to create a kind of disturbance pattern on a surface that indicated where bristles had made contact with the surface, and the computer vision software used a cellphone photo of the disturbance pattern to estimate the bare-floor engagement.
+    </p>
+    <br>
+
+    <h3>Robot Week</h3>
+    <p>
+    	I was loaned to the Shark Robot team for a week to document at-home testing and investigate hair evacuation in the new self-emptying model. Shark's robot vacuums look almost exactly like iRobot's Roombas, but don't tell SharkNinja I said that.
+    </p>
+
+    <div class="row justify-content-center">
+      <img src="https://imgs.xkcd.com/comics/dockless_roombas.png" class="col-lg-8 col-sm-12" height="100%">
+    </div>
+    <p class="text-center">This comic just about sums up my two internships while in college</p>
+    <br>
+    <p>
+    	I was given the opportunity to oversee Shark Robot tests in real homes and find bugs in the path planning software. This was really cool because I had just taken an autonomous robotics course in college.
+    </p>
+    <p>
+    	We also had a chance to 
+    </p>
+    <h4><a href="../index.html">Home</a></h4>
+  </div>
+</body>
+</html>
